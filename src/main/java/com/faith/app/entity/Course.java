@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -26,16 +27,17 @@ public class Course {
 	private boolean isActive;
 
 	// from enquiry
-	@ManyToMany(targetEntity = Enquiry.class, cascade = CascadeType.ALL)
+	@ManyToMany(targetEntity = Enquiry.class)
+	@JsonIgnore
 	private List<Enquiry> courseEnquiries;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "course_quals", joinColumns = {
 			@JoinColumn(name = "coursecode", referencedColumnName = "coursecode", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "qualid", referencedColumnName = "qualid", nullable = false, updatable = false) })
 	private List<Qualification> qualifications;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "course_mods", joinColumns = {
 			@JoinColumn(name = "coursecode", referencedColumnName = "coursecode", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "modid", referencedColumnName = "modid", nullable = false, updatable = false) })
@@ -99,7 +101,6 @@ public class Course {
 		this.fees = fees;
 	}
 
-	@JsonManagedReference
 	public List<Qualification> getQualifications() {
 		return qualifications;
 	}
@@ -108,7 +109,6 @@ public class Course {
 		this.qualifications = qualifications;
 	}
 
-	@JsonManagedReference
 	public List<Module> getModules() {
 		return modules;
 	}
@@ -122,6 +122,22 @@ public class Course {
 		return "Course [coursecode=" + coursecode + ", coursename=" + coursename + ", description=" + description
 				+ ", duration=" + duration + ", fees=" + fees + ", qualifications=" + qualifications + ", modules="
 				+ modules + "]";
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public List<Enquiry> getCourseEnquiries() {
+		return courseEnquiries;
+	}
+
+	public void setCourseEnquiries(List<Enquiry> courseEnquiries) {
+		this.courseEnquiries = courseEnquiries;
 	}
 
 }

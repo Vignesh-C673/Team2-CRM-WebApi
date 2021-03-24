@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Enquiry {
 
@@ -29,10 +31,10 @@ public class Enquiry {
 	private Year yearOfPass;
 	private LocalDate enqDate;
 	@JoinColumn
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	private Status status;
 
-	@ManyToMany(targetEntity = Course.class, cascade = CascadeType.ALL, mappedBy = "courseEnquiries")
+	@ManyToMany(targetEntity = Course.class, mappedBy = "courseEnquiries")
 	private List<Course> enquiredCourse;
 
 	
