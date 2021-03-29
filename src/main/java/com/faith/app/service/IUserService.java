@@ -1,14 +1,10 @@
 package com.faith.app.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-
 import com.faith.app.entity.TrainingAcademyUser;
-
-
-
 
 public interface IUserService {
 	
@@ -24,7 +20,13 @@ public interface IUserService {
 		//update user
 		void updateUser(TrainingAcademyUser user);
 
-		//delete user
-		void deleteUser(Integer id);
+		// disable
+		void disableUser(Integer id);
+
+		// enable
+		void enableUser(Integer id);
+
+		TrainingAcademyUser findUser(String username, String password);
+
 
 }

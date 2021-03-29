@@ -2,7 +2,8 @@ package com.faith.app.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Course {
@@ -27,7 +27,10 @@ public class Course {
 	private boolean isActive;
 
 	// from enquiry
-	@ManyToMany(targetEntity = Enquiry.class)
+	@ManyToMany(mappedBy = "enquiredCourse")
+//	@JoinTable(name = "course_course_enquiries", joinColumns = {
+//			@JoinColumn(name = "coursecode", referencedColumnName = "coursecode", nullable = false, updatable = false) }, inverseJoinColumns = {
+//					@JoinColumn(name = "enqid", referencedColumnName = "enqid", nullable = false, updatable = false) })
 	@JsonIgnore
 	private List<Enquiry> courseEnquiries;
 

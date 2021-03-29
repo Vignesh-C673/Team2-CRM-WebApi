@@ -1,10 +1,9 @@
 package com.faith.app.entity;
 
 import java.time.LocalDate;
-import java.time.Year;
+
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Enquiry {
@@ -28,13 +25,13 @@ public class Enquiry {
 	private String address;
 	private String highestQual;
 	private double percent;
-	private Year yearOfPass;
+	private int yearOfPass;
 	private LocalDate enqDate;
 	@JoinColumn
-	@ManyToOne()
+	@ManyToOne
 	private Status status;
 
-	@ManyToMany(targetEntity = Course.class, mappedBy = "courseEnquiries")
+	@ManyToMany
 	private List<Course> enquiredCourse;
 
 	
@@ -45,7 +42,7 @@ public class Enquiry {
 
 	// constructor
 	public Enquiry(int enqid, String enqName, LocalDate dob, String email, long mobile, String address,
-			String highestQual, double percent, Year yearOfPass, LocalDate enqDate, int statusID,
+			String highestQual, double percent, int yearOfPass, LocalDate enqDate, int statusID,
 			List<Course> enquiredCourse) {
 		super();
 		this.enqid = enqid;
@@ -126,11 +123,11 @@ public class Enquiry {
 		this.percent = percent;
 	}
 
-	public Year getYearOfPass() {
+	public int getYearOfPass() {
 		return yearOfPass;
 	}
 
-	public void setYearOfPass(Year yearOfPass) {
+	public void setYearOfPass(int yearOfPass) {
 		this.yearOfPass = yearOfPass;
 	}
 

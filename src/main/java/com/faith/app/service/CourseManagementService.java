@@ -64,4 +64,19 @@ public class CourseManagementService implements ICourseManagementService{
 		return (List<Qualification>) qualificationRepository.findAll();
 	}
 
+	@Override
+	public List<Course> getCourseByName(String coursename) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void disableCourse(Integer id) {
+		courseRepository.disableCourse(id);
+		
+	}
+	@Override
+	public void enableCourse(Integer id) {
+		courseRepository.enableCourse(id);
+		
+	}
 }
