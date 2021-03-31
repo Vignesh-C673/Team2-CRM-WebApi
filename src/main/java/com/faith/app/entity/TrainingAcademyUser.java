@@ -23,14 +23,14 @@ public class TrainingAcademyUser {
 	
 	private String firstname;
 	private String lastname;
-	private Date dob;
-	private String mobile;
+//	private Date dob;
+//	private String mobile;
 	private String email;
 	private String address;
-	private int pincode;
+//	private int pincode;
 	private String username;
 	private String password;
-	private String image;
+//	private String image;
 	private int roleid;
 	
 	private boolean isActive=true;
@@ -52,14 +52,14 @@ public class TrainingAcademyUser {
 		this.user_id = user_id;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.dob = dob;
-		this.mobile = mobile;
+//		this.dob = dob;
+//		this.mobile = mobile;
 		this.email = email;
 		this.address = address;
-		this.pincode = pincode;
+//		this.pincode = pincode;
 		this.username = username;
 		this.password = password;
-		this.image = image;
+//		this.image = image;
 		this.role = tRoles;
 		this.isActive=true;
 	}
@@ -97,21 +97,21 @@ public class TrainingAcademyUser {
 		this.lastname = lastname;
 	}
 
-	public Date getDob() {
-		return dob;
-	}
+//	public Date getDob() {
+//		return dob;
+//	}
+//
+//	public void setDob(Date dob) {
+//		this.dob = dob;
+//	}
 
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+//	public String getMobile() {
+//		return mobile;
+//	}
+//
+//	public void setMobile(String mobile) {
+//		this.mobile = mobile;
+//	}
 
 	public String getEmail() {
 		return email;
@@ -129,13 +129,13 @@ public class TrainingAcademyUser {
 		this.address = address;
 	}
 
-	public int getPincode() {
-		return pincode;
-	}
-
-	public void setPincode(int pincode) {
-		this.pincode = pincode;
-	}
+//	public int getPincode() {
+//		return pincode;
+//	}
+//
+//	public void setPincode(int pincode) {
+//		this.pincode = pincode;
+//	}
 
 	public String getUsername() {
 		return username;
@@ -153,13 +153,13 @@ public class TrainingAcademyUser {
 		this.password = password;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
+//	public String getImage() {
+//		return image;
+//	}
+//
+//	public void setImage(String image) {
+//		this.image = image;
+//	}
 
 	public int getRoleid() {
 		return roleid;
